@@ -25,4 +25,4 @@ RUN   chmod +x /waitready.sh
 COPY  entry.sh /
 RUN   chmod +x /entry.sh
 ENTRYPOINT /entry.sh;/opt/alfresco-5.0.c/alfresco.sh start;bash
-# ENTRYPOINT /tunerepo.sh;/modifinitpass.sh;/opt/alfresco-5.0.c/alfresco.sh start;/waitready.sh;/opt/alfresco-5.0.c/alfresco.sh stop;/tunesolr.sh;/opt/alfresco-5.0.c/alfresco.sh start;bash
+

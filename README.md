@@ -43,3 +43,10 @@ Example:
 sudo docker run -d -e INITAL_PASS=admun -t -i -p 8443:8443 alfresco-5.0.c.2
 `
 
+Note:
+
+Fortunately you can download the pre build image!
+
+`
+docker pull pdubois/docker-alfresco
+`
