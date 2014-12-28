@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+ 
+<beans>
+
+  <!-- A list of content deletion listeners.  This is split out for re-use. -->
+   <bean id="deletedContentBackupListeners" class="java.util.ArrayList">
+      <constructor-arg>
+         <list>
+            <!-- ref bean="deletedContentBackupListener" / -->
+         </list>
+      </constructor-arg>
+   </bean>
+
+</beans>
+
