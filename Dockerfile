@@ -24,5 +24,15 @@ COPY  waitready.sh /
 RUN   chmod +x /waitready.sh
 COPY  entry.sh /
 RUN   chmod +x /entry.sh
+COPY  com.atolcd.alfresco.trashcan-cleaner-2.0.0.amp  /
+RUN   mv /com.atolcd.alfresco.trashcan-cleaner-2.0.0.amp /opt/alfresco-5.0.c/amps
+# apply amps
+COPY  apply_amps_unatended.sh /
+RUN   chmod +x /apply_amps_unatended.sh
+RUN   mv /apply_amps_unatended.sh /opt/alfresco-5.0.c/bin
+RUN   /opt/alfresco-5.0.c/bin/apply_amps_unatended.sh
+# configure for allowing and managing correctly user names containing '@', see http://docs.alfresco.com/4.2/tasks/usernametypes-mix-config.html
+COPY  /custom-surf-application-context.xml /
+RUN   mv /custom-surf-application-context.xml /opt/alfresco-5.0.c/tomcat/shared/classes/alfresco/web-extension
 ENTRYPOINT /entry.sh;/opt/alfresco-5.0.c/alfresco.sh start;bash
 

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:hz="http://www.hazelcast.com/schema/spring"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+                http://www.hazelcast.com/schema/spring
+                http://www.hazelcast.com/schema/spring/hazelcast-spring-2.4.xsd">
+   
+	<bean id="webframework.slingshot.persister.remote" class="org.springframework.extensions.surf.persister.PathStoreObjectPersister" parent="webframework.sitedata.persister.abstract"> 
+		<property name="store" ref="webframework.webapp.store.remote" /> 
+		<property name="pathPrefix"><value>alfresco/site-data/${objectTypeIds}</value></property> 
+		<property name="tenantObjectCache"><value>false</value></property> 
+	</bean>
+
+</beans>
