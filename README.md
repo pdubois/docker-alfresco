@@ -19,6 +19,8 @@ Description
          are installed on same server.
     - starts Alfresco 
 - Subsequent container start only starting Alfresco
+- Configured https://addons.alfresco.com/addons/trashcan-cleaner to remove documents from the bin after 7 days allowing 
+  quicker physical space recuperation.
 
 To generate the image from "Dockerfile"
 ---------------------------------------
