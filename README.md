@@ -34,7 +34,7 @@ Example:
 sudo docker build -t alfresco-5.0.c.2 .
 `
 
-To start a conainer using the image
+To start a container using the image
 ===========
 
 sudo docker run -d -e INITAL_PASS=_initial-pass_ -t -i -p 8443:8443 _image-name_
