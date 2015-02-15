@@ -24,6 +24,8 @@ COPY  waitready.sh /
 RUN   chmod +x /waitready.sh
 COPY  entry.sh /
 RUN   chmod +x /entry.sh
+COPY  tuneglobal.sh /
+RUN   chmod +x /tuneglobal.sh
 COPY  com.atolcd.alfresco.trashcan-cleaner-2.0.0.amp  /
 RUN   mv /com.atolcd.alfresco.trashcan-cleaner-2.0.0.amp /opt/alfresco-5.0.c/amps
 # apply amps

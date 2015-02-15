@@ -15,10 +15,12 @@ Description
 	 to empty the folder manually to recuperate physical space.
 	- modifinitpass.sh reinitialize the initial repo password or "admin" to value of the INITIAL_PASS env variable
          passed when container initialy started
-    - tunesolr.sh disable solr encription between solr and alfresco for small cpu gain. solr and alfresco 
+    - tunesolr.sh disable solr encription between solr and alfresco for small cpu gain. solr and alfresco backend 
          are installed on same server.
-    - starts Alfresco 
-- Subsequent container start only starting Alfresco
+    - starts Alfresco
+    - Environment variables having name starting with "ALF_xxx" that are passed using the -e options will be copied or value updated in "alfresco-global.properties". 
+       Example: -e ALF_22=share.protocol=https will indicate that protocol for share is https and configuration line will be inserted or updated accordingly in "alfresco-global.properties"
+- Subsequent container start is only starting Alfresco adding or updating configuration passed using -e ALF_xxx=conf line. A configuration example on how to pass configuration to Alfresco within the container is included. See: startcontainerexample.sh
 - Configured https://addons.alfresco.com/addons/trashcan-cleaner to remove documents from the bin after 7 days allowing 
   quicker physical space recuperation.
 
@@ -37,7 +39,9 @@ sudo docker build -t alfresco-5.0.c.2 .
 To start a container using the image
 ===========
 
+`
 sudo docker run -d -e INITAL_PASS=_initial-pass_ -t -i -p 8443:8443 _image-name_
+`
 
 Example:
 
