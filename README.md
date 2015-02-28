@@ -1,10 +1,10 @@
-docker-alfresco
-===============
+# docker-alfresco
+
 
 Generate a docker Ubuntu based image for Alfresco Community version 5.0.c
 
-Description
-===========
+## Description
+
 
  The Dockerfile builds from "dockerfile/ubuntu" see https://registry.hub.docker.com/search?q=dockerfile/ubuntu
  
@@ -21,38 +21,39 @@ Description
     - Environment variables having name starting with "ALF_xxx" that are passed using the -e options will be copied or value updated in "alfresco-global.properties". 
        Example: -e ALF_22=share.protocol=https will indicate that protocol for share is https and configuration line will be inserted or updated accordingly in "alfresco-global.properties"
 - Subsequent container start is only starting Alfresco adding or updating configuration passed using -e ALF_xxx=conf line. A configuration example on how to pass configuration to Alfresco within the container is included. See: startcontainerexample.sh
-- Configured https://addons.alfresco.com/addons/trashcan-cleaner to remove documents from the bin after 7 days allowing 
+- Configured [trashcancleaner](https://github.com/pdubois/trashcancleaner) to remove documents from the bin after 7 days allowing 
   quicker physical space recuperation.
 
-To generate the image from "Dockerfile"
----------------------------------------
+## To generate the image from "Dockerfile"
 
+```
 cd _folder-containing-Dockerfile_
 sudo docker build -t _image-name_ .
+```
 
 Example:
 
-`
+```
 sudo docker build -t alfresco-5.0.c.2 .
-`
+```
 
-To start a container using the image
-===========
+## To start a container using the image
 
-`
+
+```
 sudo docker run -d -e INITAL_PASS=_initial-pass_ -t -i -p 8443:8443 _image-name_
-`
+```
 
 Example:
 
-`
+```
 sudo docker run -d -e INITAL_PASS=admun -t -i -p 8443:8443 alfresco-5.0.c.2
-`
+```
 
 Note:
 
 Fortunately you can download the pre build image!
 
-`
+```
 docker pull pdubois/docker-alfresco
-`
+```

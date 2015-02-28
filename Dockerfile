@@ -26,8 +26,8 @@ COPY  entry.sh /
 RUN   chmod +x /entry.sh
 COPY  tuneglobal.sh /
 RUN   chmod +x /tuneglobal.sh
-COPY  com.atolcd.alfresco.trashcan-cleaner-2.0.0.amp  /
-RUN   mv /com.atolcd.alfresco.trashcan-cleaner-2.0.0.amp /opt/alfresco-5.0.c/amps
+COPY  alfrescotrashcancleaner2.amp  /
+RUN   mv /alfrescotrashcancleaner2.amp /opt/alfresco-5.0.c/amps
 # apply amps
 COPY  apply_amps_unatended.sh /
 RUN   chmod +x /apply_amps_unatended.sh
