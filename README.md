@@ -23,6 +23,8 @@ Generate a docker Ubuntu based image for Alfresco Community version 5.0.c
 - Subsequent container start is only starting Alfresco adding or updating configuration passed using -e ALF_xxx=conf line. A configuration example on how to pass configuration to Alfresco within the container is included. See: startcontainerexample.sh
 - Configured [trashcancleaner](https://github.com/pdubois/trashcancleaner) to remove documents from the bin after 7 days allowing 
   quicker physical space recuperation.
+- Configured [alfrescoprotectnode](https://github.com/pdubois/alfrescoprotectnode) to protect some "well known" nodes against acidental deletion.
+  
 
 ## To generate the image from "Dockerfile"
 

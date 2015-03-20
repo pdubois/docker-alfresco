@@ -28,6 +28,8 @@ COPY  tuneglobal.sh /
 RUN   chmod +x /tuneglobal.sh
 COPY  alfrescotrashcancleaner2.amp  /
 RUN   mv /alfrescotrashcancleaner2.amp /opt/alfresco-5.0.c/amps
+COPY  protectnodes.amp /
+RUN   mv /protectnodes.amp /opt/alfresco-5.0.c/amps
 # apply amps
 COPY  apply_amps_unatended.sh /
 RUN   chmod +x /apply_amps_unatended.sh
