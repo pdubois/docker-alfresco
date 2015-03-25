@@ -1,4 +1,5 @@
-FROM  dockerfile/ubuntu
+FROM ubuntu
+# FROM  dockerfile/ubuntu
 MAINTAINER Philippe Dubois
 RUN   apt-get update
 RUN   apt-get install -y --no-install-recommends ubuntu-desktop
