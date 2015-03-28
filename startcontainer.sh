@@ -2,7 +2,7 @@ docker run -d -e INITAL_PASS=admun \
 -e ALF_1=mail.host=smtp.gmail.com \
 -e ALF_2=mail.port=587 \
 -e ALF_3=mail.username=pdubois824@gmail.com \
--e ALF_4=mail.password=Total123 \
+-e ALF_4=mail.password=TitiToto123 \
 -e ALF_5=mail.protocol=smtp \
 -e ALF_6=mail.encoding=UTF-8 \
 -e ALF_7=mail.from.default=pdubois824@gmail.com \
@@ -21,5 +21,5 @@ docker run -d -e INITAL_PASS=admun \
 -e ALF_20=share.host=localhost \
 -e ALF_21=share.port=8443 \
 -e ALF_22=share.protocol=https \
--t -i -p 8443:8443 alfresco-5.0.c.2
+-t -i -p 8449:8443 alfresco-5.0.c.5
 

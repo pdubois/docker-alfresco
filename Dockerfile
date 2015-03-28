@@ -1,5 +1,4 @@
 FROM ubuntu
-# FROM  dockerfile/ubuntu
 MAINTAINER Philippe Dubois
 RUN   apt-get update
 RUN   apt-get install -y --no-install-recommends ubuntu-desktop
@@ -7,8 +6,10 @@ RUN   apt-get update
 RUN   apt-get install -y wget
 RUN   wget http://dl.alfresco.com/release/community/5.0.c-build-00145/alfresco-community-5.0.c-installer-linux-x64.bin
 RUN   chmod +x ./alfresco-community-5.0.c-installer-linux-x64.bin
-RUN   ./alfresco-community-5.0.c-installer-linux-x64.bin --mode unattended --alfresco_admin_password admin
+RUN   ./alfresco-community-5.0.c-installer-linux-x64.bin --mode unattended --alfresco_admin_password admin --disable-components alfrescogoogledocs
 RUN   rm ./alfresco-community-5.0.c-installer-linux-x64.bin
+# make root readable by others
+RUN   chmod go+r /root
 COPY  passencode.py /
 RUN   chmod +x /passencode.py
 COPY  modifinitpass.sh /
