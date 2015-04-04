@@ -17,6 +17,11 @@ do
      echo "name:$name"
      varvalue=`echo -e "${!val}" | awk -F "\.EQ\.|=" '{print $2}'`
      echo "varvalue:$varvalue"
+# if varvalue starts with TUTUM then it is considered as a tutum variable
+     if [[ varvalue == TUTUM* ]]; then
+        varvalue=`echo $varvalue`
+        echo "varvalue tutum:$varvalue"
+     fi
 # test if varvalue already configured in alfresco-global.properties
      if grep -q ^$name /opt/alfresco-5.0.c/tomcat/shared/classes/alfresco-global.properties
      then
