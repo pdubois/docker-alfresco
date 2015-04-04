@@ -19,7 +19,7 @@ do
      echo "varvalue:$varvalue"
 # if varvalue starts with TUTUM then it is considered as a tutum variable
      if [[ $varvalue == TUTUM* ]]; then
-        varvalue=`echo $varvalue`
+        varvalue=`echo -e "${!varvalue}"`
         echo "varvalue tutum:$varvalue"
      fi
 # test if varvalue already configured in alfresco-global.properties
