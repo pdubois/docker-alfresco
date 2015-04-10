@@ -24,6 +24,7 @@ Generate a docker Ubuntu based image for Alfresco Community version 5.0.c
 - Configured [trashcancleaner](https://github.com/pdubois/trashcancleaner) to remove documents from the bin after 7 days allowing 
   quicker physical space recuperation.
 - Configured [alfrescoprotectnode](https://github.com/pdubois/alfrescoprotectnode) to protect some "well known" nodes against acidental deletion.
+- Some support for [tutum](https://www.tutum.co/) is included. It allows fast deployment of containers in the cloud on Azure, Digital Ocean, AWS, and SoftLayer.
   
 
 ## To generate the image from "Dockerfile"
@@ -54,8 +55,17 @@ sudo docker run -d -e INITAL_PASS=admun -t -i -p 8443:8443 alfresco-5.0.c.2
 
 Note:
 
-Fortunately you can download the pre build image!
+Fortunately you can download the pre build image from the corresponding [docker hub automatic build](https://registry.hub.docker.com/u/pdubois/docker-alfresco/) using the following command.
 
 ```
 docker pull pdubois/docker-alfresco
 ```
+## Deploying using tutum procedure
+
+- First register with [tutum](https://www.tutum.co/)
+- [bring in your own node](https://support.tutum.co/support/solutions/articles/5000513678-bring-your-own-node) in tutum.
+- Install [tutum CLI](https://github.com/tutumcloud/tutum-cli). Tested using the docker deployement of tutum CLI image therefore you need docker installed on the host used to deploy (probably your laptop).
+- Get from tutum your TUTUM_USER and your TUTUM_APIKEY.
+- Get [tutum-start-example.sh](https://github.com/pdubois/docker-alfresco/blob/8386fcad28cefb4c6d23c2c0cca27f641cb1d3c6/tutum-start-example.sh)
+- Replace with your TUTUM_USER and your TUTUM_APIKEY.
+- Make "tutum-start-example.sh" executable and execute it!   
