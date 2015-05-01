@@ -34,11 +34,14 @@ cd _folder-containing-Dockerfile_
 sudo docker build -t _image-name_ .
 ```
 
-Example:
+Examples:
 
 ```
 sudo docker build -t alfresco-5.0.c.2 .
 ```
+
+A more complete example is located [here](https://github.com/pdubois/docker-alfresco/blob/master/startcontainerexample.sh)
+
 
 ## To start a container using the image
 
