@@ -1,5 +1,5 @@
 FROM ubuntu
-MAINTAINER Philippe Dubois
+MAINTAINER Philippe Dubois 
 RUN   apt-get update
 RUN   apt-get install -y --no-install-recommends ubuntu-desktop
 RUN   apt-get update
