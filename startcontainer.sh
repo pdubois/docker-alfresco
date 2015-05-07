@@ -21,5 +21,5 @@ docker run -d -e INITAL_PASS=admun \
 -e ALF_20=share.host=localhost \
 -e ALF_21=share.port=8443 \
 -e ALF_22=share.protocol=https \
--t -i -p 8449:8443 alfresco-5.0.c.5
+-t -i -p 8449:8443 alfresco-5.0.d.5
 
