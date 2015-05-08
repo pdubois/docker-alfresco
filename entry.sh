@@ -1,3 +1,4 @@
+#!/bin/sh
 if [ ! -f /home/alfresco/foo.txt ]; then
     bash /install.sh;/tunerepo.sh;/modifinitpass.sh;/home/alfresco/alfresco-5.0.d/alfresco.sh start;/waitready.sh;/home/alfresco/alfresco-5.0.d/alfresco.sh stop;/tunesolr.sh;touch /home/alfresco/foo.txt
 fi

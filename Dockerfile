@@ -3,6 +3,7 @@ MAINTAINER Philippe Dubois & Paul Snively
 RUN   groupadd -r alfresco && useradd -r -g alfresco alfresco && mkdir /home/alfresco && chown alfresco:alfresco /home/alfresco
 RUN   curl -LO http://dl.alfresco.com/release/community/5.0.d-build-00002/alfresco-community-5.0.d-installer-linux-x64.bin
 RUN   chmod +x ./alfresco-community-5.0.d-installer-linux-x64.bin
+RUN   chown alfresco:alfresco ./alfresco-community-5.0.d-installer-linux-x64.bin
 # make root readable by others
 RUN   chmod go+r /root
 COPY  passencode.py /
@@ -30,7 +31,8 @@ RUN   chmod +x /apply_amps_unatended.sh
 # configure for allowing and managing correctly user names containing '@', see http://docs.alfresco.com/4.2/tasks/usernametypes-mix-config.html
 COPY  /custom-surf-application-context.xml /
 # RUN   mv /custom-surf-application-context.xml /home/alfresco/alfresco-5.0.d/tomcat/shared/classes/alfresco/web-extension
-COPY install.sh /
+COPY   install.sh /
+RUN   chmod +x /install.sh
 RUN   mkdir /etc/service/alfresco
 ADD   run.sh /etc/service/alfresco/run
 # Use baseimage-docker's init system.
