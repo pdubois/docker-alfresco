@@ -4,8 +4,8 @@ RUN   apt-get update
 RUN   apt-get install -y --no-install-recommends ubuntu-desktop
 RUN   apt-get update
 RUN   apt-get install -y wget
-RUN   wget http://dl.alfresco.com/release/community/5.0.c-build-00145/alfresco-community-5.0.c-installer-linux-x64.bin
-RUN   chmod +x ./alfresco-community-5.0.c-installer-linux-x64.bin
+RUN   wget http://dl.alfresco.com/release/community/5.0.d-build-00002/alfresco-community-5.0.d-installer-linux-x64.bin
+RUN   chmod +x ./alfresco-community-5.0.d-installer-linux-x64.bin
 # make root readable by others
 RUN   chmod go+r /root
 COPY  passencode.py /
@@ -33,7 +33,7 @@ COPY  apply_amps_unatended.sh /
 RUN   chmod +x /apply_amps_unatended.sh
 # configure for allowing and managing correctly user names containing '@', see http://docs.alfresco.com/4.2/tasks/usernametypes-mix-config.html
 COPY  /custom-surf-application-context.xml /
-# RUN   mv /custom-surf-application-context.xml /opt/alfresco-5.0.c/tomcat/shared/classes/alfresco/web-extension
+# RUN   mv /custom-surf-application-context.xml /opt/alfresco-5.0.d/tomcat/shared/classes/alfresco/web-extension
 COPY install.sh /
-ENTRYPOINT /entry.sh;/opt/alfresco-5.0.c/alfresco.sh start;bash
+ENTRYPOINT /entry.sh;/opt/alfresco-5.0.d/alfresco.sh start;bash
 

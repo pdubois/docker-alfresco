@@ -19,6 +19,6 @@ docker run -d -e INITAL_PASS=password \
 -e ALF_18=notification.email.siteinvite=true \
 -e ALF_19=share.context=share \
 -e ALF_20=share.host=localhost \
--e ALF_21=share.port=8443 \
+-e ALF_21=share.port=8449 \
 -e ALF_22=share.protocol=https \
--t -i -p 8443:8443 alfresco-5.0.c.2
+-t -i -p 8443:8443 alfresco-5.0.d.2
