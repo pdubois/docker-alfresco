@@ -1,4 +1,4 @@
-./alfresco-community-5.0.d-installer-linux-x64.bin --mode unattended --alfresco_admin_password admin --disable-components alfrescogoogledocs
+./alfresco-community-5.0.d-installer-linux-x64.bin --mode unattended --alfresco_admin_password admin
 rm ./alfresco-community-5.0.d-installer-linux-x64.bin
 mv /apply_amps_unatended.sh /opt/alfresco-5.0.d/bin
 mv /alfrescotrashcancleaner2.amp /opt/alfresco-5.0.d/amps
