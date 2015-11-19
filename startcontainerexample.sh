@@ -1,4 +1,4 @@
-docker run -d -e INITAL_PASS=password \
+docker run -d -e INITIAL_PASS=password \
 -e ALF_1=mail.host=smtp.gmail.com \
 -e ALF_2=mail.port=587 \
 -e ALF_3=mail.username=user@gmail.com \

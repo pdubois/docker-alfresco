@@ -1,4 +1,4 @@
-docker run -d -e INITAL_PASS=admun \
+docker run -d -e INITIAL_PASS=admun \
 -e ALF_1=mail.host=smtp.gmail.com \
 -e ALF_2=mail.port=587 \
 -e ALF_3=mail.username=pdubois824@gmail.com \
