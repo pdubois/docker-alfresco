@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import hashlib
 import os
 passwd = os.getenv("INITIAL_PASS")
