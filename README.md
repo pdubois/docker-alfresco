@@ -47,13 +47,13 @@ A more complete example is located [here](https://github.com/pdubois/docker-alfr
 
 
 ```
-sudo docker run -d -e INITAL_PASS=_initial-pass_ -t -i -p 8443:8443 _image-name_
+sudo docker run -d -e INITIAL_PASS=_initial-pass_ -t -i -p 8443:8443 _image-name_
 ```
 
 Example:
 
 ```
-sudo docker run -d -e INITAL_PASS=admun -t -i -p 8443:8443 alfresco-5.0.d.2
+sudo docker run -d -e INITIAL_PASS=admun -t -i -p 8443:8443 alfresco-5.0.d.2
 ```
 
 Note:

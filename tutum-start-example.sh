@@ -1,4 +1,4 @@
-sudo docker run -e TUTUM_USER=<put-your-tutum-user-here> -e TUTUM_APIKEY=<put-your-tutum-key-here> tutum/cli service run -e INITAL_PASS=<initial-admin-alfresco-pass> \
+sudo docker run -e TUTUM_USER=<put-your-tutum-user-here> -e TUTUM_APIKEY=<put-your-tutum-key-here> tutum/cli service run -e INITIAL_PASS=<initial-admin-alfresco-pass> \
 -e ALF_1=mail.host.EQ.smtp.gmail.com \
 -e ALF_2=mail.port.EQ.587 \
 -e ALF_3=mail.username.EQ.xxxxxxx@yyyy.com \
