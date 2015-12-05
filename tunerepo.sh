@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # do not keep orphan content
 echo "system.content.orphanProtectDays=1" >>  "/opt/alfresco-5.0.d/tomcat/shared/classes/alfresco-global.properties"
 

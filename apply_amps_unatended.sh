@@ -2,6 +2,7 @@
 # -------
 # Script for apply AMPs to installed WAR
 # -------
+set -e
 pushd $(dirname $0)>/dev/null
 export SCRIPTPATH=$(pwd)
 export ALF_HOME=${SCRIPTPATH%/*}

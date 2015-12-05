@@ -3,6 +3,7 @@
 #/opt/alfresco-5.0.d/solr4/archive-SpacesStore/conf/solrcore.properties
 # alfresco.cron=0/15 * * * * ? *
 # slowing down solr tracking
+set -e
 sed -i /opt/alfresco-5.0.d/solr4/workspace-SpacesStore/conf/solrcore.properties -e "s/alfresco\.cron=.*/alfresco\.cron=0\/30 \* \* \* \* \? \*/g"
 sed -i /opt/alfresco-5.0.d/solr4/archive-SpacesStore/conf/solrcore.properties -e "s/alfresco\.cron=.*/alfresco\.cron=0\/30 \* \* \* \* \? \*/g"
 

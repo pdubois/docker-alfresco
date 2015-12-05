@@ -1,5 +1,6 @@
 #!/bin/bash
 # setting values for all the "-e ALF_xxx=..." parameters provided at startup
+set -e
 for thing in `env`
 do
  if [[ $thing == ALF* ]]; then
