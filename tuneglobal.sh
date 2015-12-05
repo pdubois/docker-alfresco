@@ -1,3 +1,4 @@
+#!/bin/bash
 # setting values for all the "-e ALF_xxx=..." parameters provided at startup
 for thing in `env`
 do
