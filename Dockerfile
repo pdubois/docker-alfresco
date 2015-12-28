@@ -35,5 +35,5 @@ RUN   chmod +x /apply_amps_unatended.sh
 COPY  /custom-surf-application-context.xml /
 # RUN   mv /custom-surf-application-context.xml /opt/alfresco-5.0.d/tomcat/shared/classes/alfresco/web-extension
 COPY install.sh /
-ENTRYPOINT /entry.sh;/opt/alfresco-5.0.d/alfresco.sh start;bash
+ENTRYPOINT /entry.sh;/opt/alfresco-5.0.d/alfresco.sh start;while true;do sleep 20;done
 
