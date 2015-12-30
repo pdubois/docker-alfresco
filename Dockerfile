@@ -35,5 +35,7 @@ RUN   chmod +x /apply_amps_unatended.sh
 COPY  /custom-surf-application-context.xml /
 # RUN   mv /custom-surf-application-context.xml /opt/alfresco-5.0.d/tomcat/shared/classes/alfresco/web-extension
 COPY install.sh /
+# run the installer inside image build
+RUN ./alfresco-community-5.0.d-installer-linux-x64.bin --mode unattended --alfresco_admin_password admin
 ENTRYPOINT /entry.sh;/opt/alfresco-5.0.d/alfresco.sh start;while true;do sleep 20;done
 
