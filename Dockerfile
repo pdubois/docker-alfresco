@@ -37,5 +37,7 @@ COPY  /custom-surf-application-context.xml /
 COPY install.sh /
 # run the installer inside image build
 RUN ./alfresco-community-5.0.d-installer-linux-x64.bin --mode unattended --alfresco_admin_password admin
+RUN mv /opt/alfresco-5.0.d/alf_data /opt/alfresco-5.0.d/alf_data_back
+RUN mkdir /opt/alfresco-5.0.d/alf_data
 ENTRYPOINT /entry.sh;/opt/alfresco-5.0.d/alfresco.sh start;while true;do sleep 20;done
 
