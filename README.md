@@ -124,11 +124,11 @@ put your options here...
 Notes:
 
 - The created container will be **throw-away containers/disposable** because all the Alfresco related data state
-(index, DB and content) is located under "/opt/alfresco-5.0.d/alf_data".
-- The rest of the state is Alfresco deployment related (configuration files, Tomcat server, DB server ...) is located in the image 
-(pdubois/docker-alfresco in this example) and in specific options (-e < ... >). Therefore a container instance can be restarted
-using the similar "docker run ..." command eventually with different options.
-- To create a backup, you only need to backup that is located under your "data" directory on your host
+(index, DB and content) is located under "/opt/alfresco-5.0.d/alf_data" on the container.
+- The rest of the state is Alfresco deployment related (configuration files, Tomcat server, DB server ...) and is located in the image 
+(pdubois/docker-alfresco in this example) or in specific options (-e < ... >). Therefore a container instance can be restarted
+using the similar "docker run ..." command eventually with different options if different configuration is required.
+- To create a backup, you only need to backup what is located under your "data" directory on the host
 ( /opt/alfresco-5.0.d/alf_data in the example ).
 
 
