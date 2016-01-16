@@ -71,4 +71,69 @@ docker pull pdubois/docker-alfresco
 - Get from tutum your TUTUM_USER and your TUTUM_APIKEY.
 - Get [tutum-start-example.sh](https://github.com/pdubois/docker-alfresco/blob/8386fcad28cefb4c6d23c2c0cca27f641cb1d3c6/tutum-start-example.sh)
 - Replace with your TUTUM_USER and your TUTUM_APIKEY.
-- Make "tutum-start-example.sh" executable and execute it!   
+- Make "tutum-start-example.sh" executable and execute it!
+
+
+## Storing index, content and database outside of containers
+
+The approach applied is to use dedicated container for volume sharing between host and container. 
+
+### Step 1:
+
+Decide where to locate your content, index and database files on your host and create directory for it.
+
+Example:
+
+```
+mkdir /home/phil/compose/alf_data
+```
+
+### Step 2:
+
+Creating the container for content, index and database pointing to the folder created in Step1
+
+
+Example:
+
+```
+docker create -v /home/phil/compose/alf_data:/opt/alfresco-5.0.d/alf_data  --name phil-volumes ubuntu /bin/true
+``` 
+
+Notes:
+
+- The above container does not run anything, it has to exist and publishes a volume (-v internal-container-path:host-path).
+- With "-v /home/phil/compose/alf_data:/opt/alfresco-5.0.d/alf_data" defines a mapping between container and host file system.
+"/home/phil/compose/alf_data" is the path to "alf_data" from inside the container and "/opt/alfresco-5.0.d/alf_data" the path
+to same "alf_data" on your host.
+
+
+
+### Step 3:
+
+Start your container using volume from container created on "Step 2"
+
+```
+
+docker run -d -e INITIAL_PASS=admun \
+-e ALF_1=mail.host=smtp.gmail.com \
+put your options here...
+--volumes-from phil-volumes \
+-t -i -p 8450:8443 pdubois/docker-alfresco
+```
+
+Notes:
+
+- The created container will be **throw-away containers/disposable** because all the Alfresco related data state
+(index, DB and content) is located under "/opt/alfresco-5.0.d/alf_data".
+- The rest of the state is Alfresco deployment related (configuration files, Tomcat server, DB server ...) is located in the image 
+(pdubois/docker-alfresco in this example) and in specific options (-e < ... >). Therefore a container instance can be restarted
+using the similar "docker run ..." command eventually with different options.
+- To create a backup, you only need to backup that is located under your "data" directory on your host
+( /opt/alfresco-5.0.d/alf_data in the example ).
+
+
+
+
+
+ 
+   
