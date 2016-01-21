@@ -1,25 +1,15 @@
 FROM ubuntu
 MAINTAINER Philippe Dubois 
-RUN   apt-get update
-RUN   apt-get install -y --no-install-recommends ubuntu-desktop
-RUN   apt-get update
-RUN   apt-get install -y wget
-RUN   wget http://dl.alfresco.com/release/community/5.0.d-build-00002/alfresco-community-5.0.d-installer-linux-x64.bin
-RUN   chmod +x ./alfresco-community-5.0.d-installer-linux-x64.bin
+RUN   apt-get update && apt-get install -y --no-install-recommends ubuntu-desktop && apt-get update && apt-get install -y wget && wget http://dl.alfresco.com/release/community/5.0.d-build-00002/alfresco-community-5.0.d-installer-linux-x64.bin && chmod +x ./alfresco-community-5.0.d-installer-linux-x64.bin
 # make root readable by others
 RUN   chmod go+r /root
 COPY  passencode.py /
-RUN   chmod +x /passencode.py
 COPY  modifinitpass.sh /
-RUN   chmod +x /modifinitpass.sh
 COPY  tunesolr.sh /
-RUN   chmod +x /tunesolr.sh
 COPY  tunerepo.sh /
-RUN   chmod +x /tunerepo.sh
 COPY  disable-delbackup-context.xml /
-RUN   apt-get update
-RUN   apt-get install -y curl
-RUN   apt-get install -y xmlstarlet
+RUN   chmod +x /passencode.py && chmod +x /modifinitpass.sh && chmod +x /tunesolr.sh && chmod +x /tunerepo.sh
+RUN   apt-get update && apt-get install -y curl && apt-get install -y xmlstarlet
 COPY  waitready.sh /
 RUN   chmod +x /waitready.sh
 COPY  entry.sh /
