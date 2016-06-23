@@ -23,6 +23,6 @@ sudo docker run -e TUTUM_USER=<put-your-tutum-user-here> -e TUTUM_APIKEY=<put-yo
 -e ALF_22=share.protocol.EQ.https \
 --autorestart OFF \
 --autodestroy OFF \
---entrypoint "bash -c '/entry.sh;/opt/alfresco-5.0.c/alfresco.sh start;while true;do sleep 20;done'" \
+--entrypoint "bash -c '/entry.sh;/opt/alfresco/alfresco.sh start;while true;do sleep 20;done'" \
 -p 8602:8443 pdubois/docker-alfresco
 
