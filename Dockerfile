@@ -2,7 +2,7 @@ FROM ubuntu
 MAINTAINER Philippe Dubois 
 ENV DEBIAN_FRONTEND noninteractive
 RUN   apt-get update && apt-get install -y --no-install-recommends ubuntu-desktop && apt-get update && apt-get install -y wget && wget http://dl.alfresco.com/release/community/5.0.d-build-00002/alfresco-community-5.0.d-installer-linux-x64.bin && chmod +x ./alfresco-community-5.0.d-installer-linux-x64.bin
-# make root readable by others 
+# make root readable by others  
 RUN   chmod go+r /root
 COPY  passencode.py /
 COPY  modifinitpass.sh /
