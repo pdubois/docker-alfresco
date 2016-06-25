@@ -1,12 +1,12 @@
 # docker-alfresco
 
 
-Generate a docker Ubuntu based image for Alfresco Community version 5.0.d
+Generate a docker Ubuntu based image for Alfresco Community version 5.1.0 with Alfresco Share v5.1.f
 
 ## Description
 
 
- The Dockerfile builds from "dockerfile/ubuntu" see https://registry.hub.docker.com/search?q=dockerfile/ubuntu
+ The Dockerfile builds from "dockerfile/ubuntu" see https://hub.docker.com/_/ubuntu/
  
 - Installs "ubuntu-desktop" required for Alfresco transformation
 - Dockerfile defines an "ENTRYPOINT" performing following configurations when containter is started first:
@@ -37,7 +37,7 @@ sudo docker build -t _image-name_ .
 Examples:
 
 ```
-sudo docker build -t alfresco-5.0.d.2 .
+sudo docker build -t alfresco-5.1.0 .
 ```
 
 A more complete example is located [here](https://github.com/pdubois/docker-alfresco/blob/master/startcontainerexample.sh)
@@ -53,7 +53,7 @@ sudo docker run -d -e INITIAL_PASS=_initial-pass_ -t -i -p 8443:8443 _image-name
 Example:
 
 ```
-sudo docker run -d -e INITIAL_PASS=admun -t -i -p 8443:8443 alfresco-5.0.d.2
+sudo docker run -d -e INITIAL_PASS=admun -t -i -p 8443:8443 alfresco-5.1.0
 ```
 
 Note:
@@ -96,14 +96,14 @@ Creating the container for content, index and database pointing to the folder cr
 Example:
 
 ```
-docker create -v /home/phil/compose/alf_data:/opt/alfresco-5.0.d/alf_data  --name phil-volumes ubuntu /bin/true
+docker create -v /home/phil/compose/alf_data:/opt/alfresco/alf_data  --name phil-volumes ubuntu /bin/true
 ``` 
 
 Notes:
 
 - The above container does not run anything, it has to exist and publishes a volume (-v internal-container-path:host-path).
-- With "-v /home/phil/compose/alf_data:/opt/alfresco-5.0.d/alf_data" defines a mapping between container and host file system.
-"/home/phil/compose/alf_data" is the path to "alf_data" from inside the container and "/opt/alfresco-5.0.d/alf_data" the path
+- With "-v /home/phil/compose/alf_data:/opt/alfresco/alf_data" defines a mapping between container and host file system.
+"/home/phil/compose/alf_data" is the path to "alf_data" from inside the container and "/opt/alfresco/alf_data" the path
 to same "alf_data" on your host.
 
 
@@ -124,12 +124,12 @@ put your options here...
 Notes:
 
 - The created container will be **throw-away containers/disposable** because all the Alfresco related data state
-(index, DB and content) is located under "/opt/alfresco-5.0.d/alf_data" on the container.
-- The rest of the state is Alfresco deployment related (configuration files, Tomcat server, DB server ...) and is located in the image 
+(index, DB and content) is located under "/opt/alfresco/alf_data" on the container.
+- The rest of the state is Alfresco deployment related (configuration files, Tomcat server, DB server ...) is located in the image 
 (pdubois/docker-alfresco in this example) or in specific options (-e < ... >). Therefore a container instance can be restarted
 using the similar "docker run ..." command eventually with different options if different configuration is required.
 - To create a backup, you only need to backup what is located under your "data" directory on the host
-( /opt/alfresco-5.0.d/alf_data in the example ).
+( /opt/alfresco/alf_data in the example ).
 
 
 

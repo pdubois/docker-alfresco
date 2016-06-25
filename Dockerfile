@@ -1,7 +1,7 @@
 FROM ubuntu
 MAINTAINER Philippe Dubois 
 ENV DEBIAN_FRONTEND noninteractive
-RUN   apt-get update && apt-get install -y --no-install-recommends ubuntu-desktop && apt-get update && apt-get install -y wget && wget http://dl.alfresco.com/release/community/5.0.d-build-00002/alfresco-community-5.0.d-installer-linux-x64.bin && chmod +x ./alfresco-community-5.0.d-installer-linux-x64.bin
+RUN   apt-get update && apt-get install -y --no-install-recommends ubuntu-desktop && apt-get update && apt-get install -y wget && wget http://dl.alfresco.com/release/community/201605-build-00010/alfresco-community-installer-201605-linux-x64.bin && chmod +x ./*.bin
 # make root readable by others    
 RUN   chmod go+r /root
 COPY  passencode.py /
@@ -27,7 +27,7 @@ COPY  /custom-surf-application-context.xml /
 # RUN   mv /custom-surf-application-context.xml /opt/alfresco/tomcat/shared/classes/alfresco/web-extension
 COPY install.sh /
 # run the installer inside image build
-RUN ./alfresco-community-5.0.d-installer-linux-x64.bin --mode unattended --alfresco_admin_password admin --prefix /opt/alfresco
+RUN ./alfresco-community-installer-201605-linux-x64.bin --mode unattended --alfresco_admin_password admin --prefix /opt/alfresco
 RUN mv /opt/alfresco/alf_data /opt/alfresco/alf_data_back
 RUN mkdir /opt/alfresco/alf_data
 ENTRYPOINT /entry.sh;/opt/alfresco/alfresco.sh start;while true;do sleep 20;done

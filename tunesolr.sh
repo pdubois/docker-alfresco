@@ -13,14 +13,14 @@ sed -i /opt/alfresco/solr4/workspace-SpacesStore/conf/solrcore.properties -e "s/
 sed -i /opt/alfresco/solr4/archive-SpacesStore/conf/solrcore.properties -e "s/alfresco\.secureComms=.*/alfresco\.secureComms=none/g"
 
 #  delete security-constraint in solr
-xmlstarlet ed  -d "/_:web-app/_:security-constraint" /opt/alfresco/tomcat/webapps/solr4/WEB-INF/web.xml > /opt/alfresco/tomcat/webapps/solr4/WEB-INF/web2.xml
-rm /opt/alfresco/tomcat/webapps/solr4/WEB-INF/web.xml
-mv /opt/alfresco/tomcat/webapps/solr4/WEB-INF/web2.xml /opt/alfresco/tomcat/webapps/solr4/WEB-INF/web.xml
+# xmlstarlet ed  -d "/_:web-app/_:security-constraint" /opt/alfresco/tomcat/webapps/solr4/WEB-INF/web.xml > /opt/alfresco/tomcat/webapps/solr4/WEB-INF/web2.xml
+# rm /opt/alfresco/tomcat/webapps/solr4/WEB-INF/web.xml
+# mv /opt/alfresco/tomcat/webapps/solr4/WEB-INF/web2.xml /opt/alfresco/tomcat/webapps/solr4/WEB-INF/web.xml
 
 #  delete security-constraint in solr
-xmlstarlet ed  -d "/_:web-app/_:security-constraint" /opt/alfresco/tomcat/webapps/alfresco/WEB-INF/web.xml > /opt/alfresco/tomcat/webapps/alfresco/WEB-INF/web2.xml
-rm /opt/alfresco/tomcat/webapps/alfresco/WEB-INF/web.xml
-mv /opt/alfresco/tomcat/webapps/alfresco/WEB-INF/web2.xml /opt/alfresco/tomcat/webapps/alfresco/WEB-INF/web.xml
+# xmlstarlet ed  -d "/_:web-app/_:security-constraint" /opt/alfresco/tomcat/webapps/alfresco/WEB-INF/web.xml > /opt/alfresco/tomcat/webapps/alfresco/WEB-INF/web2.xml
+# rm /opt/alfresco/tomcat/webapps/alfresco/WEB-INF/web.xml
+# mv /opt/alfresco/tomcat/webapps/alfresco/WEB-INF/web2.xml /opt/alfresco/tomcat/webapps/alfresco/WEB-INF/web.xml
 
 
 
@@ -33,7 +33,7 @@ echo "solr.backup.alfresco.cronExpression=0 0 0 1 1 ? 2200" >> "/opt/alfresco/to
 echo "solr.backup.archive.cronExpression=0 0 0 1 1 ? 2200" >>  "/opt/alfresco/tomcat/shared/classes/alfresco-global.properties"
 
 # Disable solr security alfresco side
-echo "alfresco.secureComms=none" >> "/opt/alfresco/tomcat/shared/classes/alfresco-global.properties"
+echo "solr.secureComms=none" >> "/opt/alfresco/tomcat/shared/classes/alfresco-global.properties"
 
 
 #./solr4/archive-SpacesStore/conf/solrconfig.xml
