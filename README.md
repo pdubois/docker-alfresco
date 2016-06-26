@@ -63,6 +63,23 @@ Fortunately you can download the pre build image from the corresponding [docker 
 ```
 docker pull pdubois/docker-alfresco
 ```
+## To stop your container
+
+```
+sudo docker stop -t <SECONDS>  <CONTAINER ID>
+```
+
+The above command will stop your container with a grace period of SECONDS. Grace period gives the opportunity to alfresco process to stop gracefully ( example: flushing buffers).
+The “entry.sh” script executed while starting traps   SIGTERM signal and calls execute “/opt/alfresco/alfresco.sh stop” when container is stopped.
+
+Exit code of the container can be checked using following command:
+
+```
+sudo docker inspect -f '{{.State.ExitCode}}' <CONTAINER ID>
+```
+
+Under normal circumstance exit code should be “0”. Reasonable value for "SECONDS" is 60.
+
 ## Deploying using tutum procedure
 
 - First register with [tutum](https://www.tutum.co/)

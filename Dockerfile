@@ -30,5 +30,5 @@ COPY install.sh /
 RUN ./alfresco-community-installer-201605-linux-x64.bin --mode unattended --alfresco_admin_password admin --prefix /opt/alfresco
 RUN mv /opt/alfresco/alf_data /opt/alfresco/alf_data_back
 RUN mkdir /opt/alfresco/alf_data
-ENTRYPOINT /entry.sh;/opt/alfresco/alfresco.sh start;while true;do sleep 20;done
+CMD ["/entry.sh"]
 
