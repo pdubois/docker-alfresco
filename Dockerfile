@@ -10,7 +10,7 @@ COPY  tunesolr.sh /
 COPY  tunerepo.sh /
 COPY  disable-delbackup-context.xml /
 RUN   chmod +x /passencode.py && chmod +x /modifinitpass.sh && chmod +x /tunesolr.sh && chmod +x /tunerepo.sh
-RUN   apt-get update && apt-get install -y curl && apt-get install -y xmlstarlet
+RUN   apt-get update && apt-get install -y curl
 COPY  waitready.sh /
 RUN   chmod +x /waitready.sh
 COPY  entry.sh /
