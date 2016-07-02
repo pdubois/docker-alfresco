@@ -24,7 +24,7 @@ Generate a docker Ubuntu based image for Alfresco Community version 5.1.0 with A
 - Configured [trashcancleaner](https://github.com/pdubois/trashcancleaner) to remove documents from the bin after 7 days allowing 
   quicker physical space recuperation.
 - Configured [alfrescoprotectnode](https://github.com/pdubois/alfrescoprotectnode) to protect some "well known" nodes against acidental deletion.
-- Some support for [tutum](https://www.tutum.co/) is included. It allows fast deployment of containers in the cloud on Azure, Digital Ocean, AWS, and SoftLayer.
+- Some support for [dockercloud](https://www.docker.com/products/docker-cloud) is included. It allows fast deployment of containers in the cloud on Azure, Digital Ocean, AWS, and SoftLayer.
   
 
 ## To generate the image from "Dockerfile"
@@ -80,15 +80,15 @@ sudo docker inspect -f '{{.State.ExitCode}}' <CONTAINER ID>
 
 Under normal circumstance exit code should be “0”. Reasonable value for "SECONDS" is 60.
 
-## Deploying using tutum procedure
+## Deploying using dockercloud procedure
 
-- First register with [tutum](https://www.tutum.co/)
-- [bring in your own node](https://support.tutum.co/support/solutions/articles/5000513678-bring-your-own-node) in tutum.
-- Install [tutum CLI](https://github.com/tutumcloud/tutum-cli). Tested using the docker deployement of tutum CLI image therefore you need docker installed on the host used to deploy (probably your laptop).
-- Get from tutum your TUTUM_USER and your TUTUM_APIKEY.
-- Get [tutum-start-example.sh](https://github.com/pdubois/docker-alfresco/blob/8386fcad28cefb4c6d23c2c0cca27f641cb1d3c6/tutum-start-example.sh)
-- Replace with your TUTUM_USER and your TUTUM_APIKEY.
-- Make "tutum-start-example.sh" executable and execute it!
+- First register with [dockercloud](https://docs.docker.com/docker-cloud/)
+- [bring in your own node](https://docs.docker.com/docker-cloud/infrastructure/byoh/) in dockercloud.
+- Install [dockercloud CLI](https://docs.docker.com/docker-cloud/installing-cli/). Tested using the docker deployement of dockercloud CLI image therefore you need docker installed on the host used to deploy (probably your laptop).
+- Get from dockercloud your DOCKERCLOUD_USER and your DOCKERCLOUD_PASS.
+- Get [docloud-example.sh](https://github.com/pdubois/docker-alfresco/blob/master/docloud-example.sh)
+- Replace with your DOCKERCLOUD_USER and your DOCKERCLOUD_PASS.
+- Make "docloud-example.sh" executable and execute it!
 
 
 ## Storing index, content and database outside of containers
