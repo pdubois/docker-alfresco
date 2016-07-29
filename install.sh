@@ -1,7 +1,6 @@
 #!/bin/bash
 set -e
 # Moved installation in Dockerfile
-rm ./alfresco-community-installer-201605-linux-x64.bin
 mv /apply_amps_unatended.sh /opt/alfresco/bin
 mv /alfrescotrashcancleaner2.amp /opt/alfresco/amps
 mv /protectnodes.amp /opt/alfresco/amps
