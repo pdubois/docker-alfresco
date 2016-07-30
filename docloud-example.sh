@@ -1,4 +1,4 @@
-sudo docker run -it -e DOCKERCLOUD_USER=pdubois -e DOCKERCLOUD_PASS=Medira123 --rm dockercloud/cli service run \
+sudo docker run -it -e DOCKERCLOUD_USER=yourid -e DOCKERCLOUD_PASS=yourpass --rm dockercloud/cli service run \
 -e INITIAL_PASS=admun \
 -e ALF_1=mail.host.EQ.smtp.gmail.com \
 -e ALF_2=mail.port.EQ.587 \
