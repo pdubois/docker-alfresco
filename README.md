@@ -1,7 +1,7 @@
 # docker-alfresco
 
 
-Generate a docker Ubuntu based image for Alfresco Community version 5.1.0 with Alfresco Share v5.1.f
+Generate a docker Ubuntu based image for Alfresco Community version 5.2.a-EA with Alfresco Share v5.1.g
 
 ## Description
 
