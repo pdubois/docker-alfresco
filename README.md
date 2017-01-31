@@ -1,7 +1,7 @@
 # docker-alfresco
 
 
-Generate a docker Ubuntu based image for Alfresco Community version 5.2.a-EA with Alfresco Share v5.1.g
+Generate a docker Ubuntu based image for Alfresco Community v5.2.0 with Alfresco Share v5.2.d (see http://eu.dl.alfresco.com.s3.amazonaws.com/release/community/201701-build-00015/alfresco-community-installer-201701-linux-x64.bin)
 
 ## Description
 
@@ -37,7 +37,7 @@ sudo docker build -t _image-name_ .
 Examples:
 
 ```
-sudo docker build -t alfresco-5.1.0 .
+sudo docker build -t alfresco-5.2.0 .
 ```
 
 A more complete example is located [here](https://github.com/pdubois/docker-alfresco/blob/master/startcontainerexample.sh)
@@ -53,7 +53,7 @@ sudo docker run -d -e INITIAL_PASS=_initial-pass_ -t -i -p 8443:8443 _image-name
 Example:
 
 ```
-sudo docker run -d -e INITIAL_PASS=admun -t -i -p 8443:8443 alfresco-5.1.0
+sudo docker run -d -e INITIAL_PASS=admun -t -i -p 8443:8443 alfresco-5.2.0
 ```
 
 Note:

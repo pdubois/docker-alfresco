@@ -9,7 +9,7 @@ docker run -d -e INITIAL_PASS=password \
 -e ALF_8=mail.smtp.starttls.enable=true \
 -e ALF_9=mail.smtp.auth=true \
 -e ALF_10=mail.smtp.debug=false \
--e ALF_11=mail.testmessage.send=true \
+-e ALF_11=mail.testmessage.send=false \
 -e ALF_12=mail.testmessage.to=somemail@gmail.com \
 -e ALF_13=mail.testmessage.subject="Outbound SMTP" \
 -e ALF_14=mail.testmessage.text="The Outbound SMTP email subsystem is working." \
@@ -19,6 +19,6 @@ docker run -d -e INITIAL_PASS=password \
 -e ALF_18=notification.email.siteinvite=true \
 -e ALF_19=share.context=share \
 -e ALF_20=share.host=localhost \
--e ALF_21=share.port=8449 \
--e ALF_22=share.protocol=https \
--t -i -p 8449:8443 alfresco-5.1.0
+-e ALF_21=share.port=8080 \
+-e ALF_22=share.protocol=http \
+-t -i -p 8080:8080 pdubois/docker-alfresco:v5.1.g

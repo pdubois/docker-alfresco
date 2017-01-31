@@ -1,7 +1,7 @@
 FROM ubuntu
 MAINTAINER Philippe Dubois 
 ENV DEBIAN_FRONTEND noninteractive
-RUN   apt-get update && apt-get install -y --no-install-recommends ubuntu-desktop && apt-get update && apt-get install -y wget && wget http://heanet.dl.sourceforge.net/project/alfresco/Alfresco%20201606-EA%20Community/alfresco-community-installer-201606-EA-linux-x64.bin && chmod +x ./*.bin
+RUN   apt-get update && apt-get install -y --no-install-recommends ubuntu-desktop && apt-get update && apt-get install -y wget && wget http://eu.dl.alfresco.com.s3.amazonaws.com/release/community/201701-build-00015/alfresco-community-installer-201701-linux-x64.bin && chmod +x ./*.bin
 # make root readable by others    
 RUN   chmod go+r /root
 COPY  passencode.py /
@@ -27,10 +27,10 @@ COPY  /custom-surf-application-context.xml /
 # RUN   mv /custom-surf-application-context.xml /opt/alfresco/tomcat/shared/classes/alfresco/web-extension
 COPY install.sh /
 # run the installer inside image build
-RUN ./alfresco-community-installer-201606-EA-linux-x64.bin --mode unattended --alfresco_admin_password admin --prefix /opt/alfresco
-RUN rm ./alfresco-community-installer-201606-EA-linux-x64.bin
+RUN ./alfresco-community-installer-201701-linux-x64.bin --mode unattended --alfresco_admin_password admin --prefix /opt/alfresco
+RUN rm ./alfresco-community-installer-201701-linux-x64.bin
 RUN mv /opt/alfresco/alf_data /opt/alfresco/alf_data_back
 RUN mkdir /opt/alfresco/alf_data
-CMD ["/entry.sh"]
+ENTRYPOINT ["/entry.sh"]
 
 
