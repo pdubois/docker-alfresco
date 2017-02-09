@@ -17,7 +17,6 @@ COPY  entry.sh /
 RUN   chmod +x /entry.sh
 COPY  tuneglobal.sh /
 RUN   chmod +x /tuneglobal.sh
-COPY  alfrescotrashcancleaner2.amp  /
 COPY  protectnodes.amp /
 # apply amps
 COPY  apply_amps_unatended.sh /

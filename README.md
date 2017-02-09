@@ -21,8 +21,6 @@ Generate a docker Ubuntu based image for Alfresco Community v5.2.0 with Alfresco
     - Environment variables having name starting with "ALF_xxx" that are passed using the -e options will be copied or value updated in "alfresco-global.properties". 
        Example: -e ALF_22=share.protocol=https will indicate that protocol for share is https and configuration line will be inserted or updated accordingly in "alfresco-global.properties"
 - Subsequent container start is only starting Alfresco adding or updating configuration passed using -e ALF_xxx=conf line. A configuration example on how to pass configuration to Alfresco within the container is included. See: startcontainerexample.sh
-- Configured [trashcancleaner](https://github.com/pdubois/trashcancleaner) to remove documents from the bin after 7 days allowing 
-  quicker physical space recuperation.
 - Configured [alfrescoprotectnode](https://github.com/pdubois/alfrescoprotectnode) to protect some "well known" nodes against acidental deletion.
 - Some support for [dockercloud](https://www.docker.com/products/docker-cloud) is included. It allows fast deployment of containers in the cloud on Azure, Digital Ocean, AWS, and SoftLayer.
   
