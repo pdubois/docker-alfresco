@@ -9,8 +9,9 @@ fi
 # setting values for all the "-e ALF_xxx=..." parameters provided at startup
 bash /tuneglobal.sh
 
-# starts alfresco
-/opt/alfresco/alfresco.sh start;
+# start postgres and alfresco separately
+/opt/alfresco/alfresco.sh start postgresql
+/opt/alfresco/alfresco.sh start tomcat
 
 # loop so container does not exit
 while true;do sleep 5;done
