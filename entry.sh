@@ -10,8 +10,15 @@ fi
 bash /tuneglobal.sh
 
 # start postgres and alfresco separately
-/opt/alfresco/alfresco.sh start postgresql
-/opt/alfresco/alfresco.sh start tomcat
+if [ -z ${CONTAINER_FUNCTION+x} ]; then 
+	echo "Tomcat and Postgres running in same container"; 
+        /opt/alfresco/alfresco.sh start;
+else    
+	
+        echo "Running only $CONTAINER_FUNCTION";
+        /opt/alfresco/alfresco.sh start $CONTAINER_FUNCTION;
+fi
+
 
 # loop so container does not exit
 while true;do sleep 5;done
