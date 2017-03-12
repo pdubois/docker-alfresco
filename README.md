@@ -146,9 +146,25 @@ using the similar "docker run ..." command eventually with different options if 
 - To create a backup, you only need to backup what is located under your "data" directory on the host
 ( /opt/alfresco/alf_data in the example ).
 
+##Running Alfresco and database in separate containers
 
+Depending on the environment variable **CONTAINER_FUNCTION** value passed when running container your container will run Alfresco and postgres together if **CONTAINER_FUNCTION** is undefined. If  **CONTAINER_FUNCTION** equals ***tomcat***  it will start tomcat with Alfresco deployed but no DB. 
 
+###Example:
+To run this example a dedicated docker network will be created (see: https://docs.docker.com/engine/userguide/networking/)
 
-
+```
  
-   
+# create a dedicated network to run in isolation
+docker network create --driver bridge isolated_nw
+# starting db tier on the network 
+docker run --network=isolated_nw --name postgres3 -e POSTGRES_PASSWORD=mysecretpassword -d postgres:9.4.4
+# creating the DB
+docker run --network=isolated_nw -i --rm postgres sh -c 'export PGPASSWORD=mysecretpassword;exec psql -h "postgres3" -p "5432" -U postgres' < ./create.sql
+ # starting Alfresco tier
+sudo docker run --network=isolated_nw -d -e INITIAL_PASS=admun \
+ -e CONTAINER_FUNCTION=tomcat -e ALF_1='db.url.EQ.jdbc:postgresql:\/\/postgres3:5432\/${db.name}'  \
+ -e ALF_2='db.password.EQ.mysecretpassword' \
+ -e ALF_3='db.username.EQ.postgres' -t -i -p 8443 alfresco
+```
+
