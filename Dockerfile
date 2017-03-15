@@ -30,6 +30,9 @@ RUN ./alfresco-community-installer-201702-linux-x64.bin --mode unattended --alfr
 RUN rm ./alfresco-community-installer-201702-linux-x64.bin
 RUN mv /opt/alfresco/alf_data /opt/alfresco/alf_data_back
 RUN mkdir /opt/alfresco/alf_data
+COPY create.sql /
+RUN   apt-get update && apt-get install -y vim
+EXPOSE 8443
 ENTRYPOINT ["/entry.sh"]
 
 
