@@ -1,0 +1,23 @@
+version: '3'
+services:
+   alfresco:
+       image: "pdubois/docker-alfresco:master"
+       ports:
+        - "8443"
+       environment:
+        - INITIAL_PASS=admun
+        - CONTAINER_FUNCTION=tomcat
+        - ALF_1=db.url.EQ.jdbc:postgresql:\/\/postgres:5432\/alfresco
+        - ALF_2=db.password.EQ.mysecretpassword  
+        - ALF_3=db.username.EQ.postgres
+        - DB_CONTAINER_NAME=postgres
+       depends_on:
+        - postgres
+   postgres:
+       image: postgres:9.4.4
+       environment:
+        - POSTGRES_PASSWORD=mysecretpassword
+       
+       
+
+          

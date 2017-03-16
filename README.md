@@ -163,3 +163,36 @@ docker run --network=isolated_nw --name postgres3 -e POSTGRES_PASSWORD=mysecretp
 docker run --network=isolated_nw -d -e INITIAL_PASS=admun  -e CONTAINER_FUNCTION=tomcat -e ALF_1='db.url.EQ.jdbc:postgresql:\/\/postgres3:5432\/${db.name}'   -e ALF_2='db.password.EQ.mysecretpassword'  -e DB_CONTAINER_NAME=postgres3  -e ALF_3='db.username.EQ.postgres' -t -i -p 8443 alfresco
 ```
 
+Alternatively, you can use [docker-compose](https://docs.docker.com/compose/) to start database container and Alfresco tier in one single command. Here under the **docker-compose.yml** file content:
+
+```
+version: '2'
+services:
+   alfresco:
+       image: "pdubois/docker-alfresco:master"
+       ports:
+        - "8443"
+       environment:
+        - INITIAL_PASS=admun
+        - CONTAINER_FUNCTION=tomcat
+        - ALF_1=db.url.EQ.jdbc:postgresql:\/\/postgres:5432\/alfresco
+        - ALF_2=db.password.EQ.mysecretpassword  
+        - ALF_3=db.username.EQ.postgres
+        - DB_CONTAINER_NAME=postgres
+       depends_on:
+        - postgres
+   postgres:
+       image: postgres:9.4.4
+       environment:
+        - POSTGRES_PASSWORD=mysecretpassword
+``` 
+
+To start the stack in a single command:
+
+```
+docker-compose up
+```
+
+
+
+
