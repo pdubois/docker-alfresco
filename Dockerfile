@@ -1,7 +1,7 @@
 FROM ubuntu
 MAINTAINER Philippe Dubois 
 ENV DEBIAN_FRONTEND noninteractive
-RUN   apt-get update && apt-get install -y --no-install-recommends ubuntu-desktop && apt-get update && apt-get install -y wget && wget http://eu.dl.alfresco.com.s3.amazonaws.com/release/community/201702-build-00016/alfresco-community-installer-201702-linux-x64.bin && chmod +x ./*.bin
+RUN   apt-get update && apt-get install -y --no-install-recommends ubuntu-desktop && apt-get update && apt-get install -y wget && wget https://sourceforge.net/projects/alfresco/files/Alfresco%20201702%20Community/alfresco-community-installer-201702-linux-x64.bin && chmod +x ./*.bin 
 # make root readable by others    
 RUN   chmod go+r /root
 COPY  passencode.py /
