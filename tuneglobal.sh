@@ -25,7 +25,7 @@ do
         echo "varvalue tutum:$varvalue"
      fi
 # test if varvalue already configured in alfresco-global.properties
-     if grep -q ^$name /opt/alfresco/tomcat/shared/classes/alfresco-global.properties
+     if grep -q ^$name= /opt/alfresco/tomcat/shared/classes/alfresco-global.properties
      then
         sed -i "/opt/alfresco/tomcat/shared/classes/alfresco-global.properties" -e "s/$name=.*/$name=$varvalue/g"
     else
