@@ -146,11 +146,41 @@ using the similar "docker run ..." command eventually with different options if 
 - To create a backup, you only need to backup what is located under your "data" directory on the host
 ( /opt/alfresco/alf_data in the example ).
 
+The same can be achieved using a single command "docker-compose":
+
+The ***"./yml-with-volumes/docker-compose.yml"*** under stack descriptor can be used as follows
+
+```
+version: '3'
+services:
+   alfresco:
+       image: "pdubois/docker-alfresco:master"
+       volumes:
+        - ${INDEX_AND_DATA}:/opt/alfresco/alf_data       
+       ports:
+        - "8443"
+       environment:
+        - INITIAL_PASS=admun
+
+```
+
+Adjust value in of "INDEX_AND_DATA" in ".env" file to indicate your index, content and DB files location on your host. From the "./yml-with-volumes" folder start stack with
+
+```
+sudo docker-compose up
+```
+
+
+
+
 ##Running Alfresco and database in separate containers
 
 Depending on the environment variable **CONTAINER_FUNCTION** value passed when running container your container will run Alfresco and postgres together if **CONTAINER_FUNCTION** is undefined. If  **CONTAINER_FUNCTION** equals ***tomcat***  it will start tomcat with Alfresco deployed but no DB. DB will run in a separate container called **postgres3** in the example here under. Database creation script will be ran from the "tomcat" container when started initially.
 
-###Example:
+###Examples:
+
+####Running a stack using "docker run" and "docker-compose" 
+
 To run this example a dedicated docker network will be created (see: https://docs.docker.com/engine/userguide/networking/)
 
 ```

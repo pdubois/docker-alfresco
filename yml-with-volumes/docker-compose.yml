@@ -1,0 +1,12 @@
+version: '3'
+services:
+   alfresco:
+       image: "pdubois/docker-alfresco:master"
+       volumes: 
+        - ${INDEX_AND_DATA}:/opt/alfresco/alf_data       
+       ports:
+        - "8443"
+       environment:
+        - INITIAL_PASS=admun
+
+          
