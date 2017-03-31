@@ -1,0 +1,15 @@
+version: '3'
+services:
+  nginx:
+    image: nginx
+    hostname: ${HOSTNAME}
+    volumes:
+      - "./nginx/alfresco.conf:/etc/nginx/conf.d/alfresco.conf:ro"
+    ports:
+      - "80:80"
+    depends_on:
+      - alfresco
+  alfresco:
+    image: "pdubois/docker-alfresco:master"     
+    environment:
+      - INITIAL_PASS=admun

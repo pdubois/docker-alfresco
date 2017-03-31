@@ -226,4 +226,15 @@ docker-compose up
 A more complete example including [search server 1.0.0 based on SOLR6](https://sourceforge.net/projects/alfresco/files/Alfresco%20201702%20Community/alfresco-search-services-1.0.0.zip) can be found [here](https://hub.docker.com/r/pdubois/solr6/) 
 
 
+#### Running Alfresco on port 80 with nginx server
+
+The folder ***nginx-alfresco-80*** contains a yml file starting Alfresco on port 80 havin ***nginx*** in front of it.
+
+Before starting it with ***"docker-compose up"*** host name you are deploying to should be set in ***".env"*** file.
+
+
+
+
+
+
 
