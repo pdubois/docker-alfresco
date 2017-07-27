@@ -173,13 +173,13 @@ sudo docker-compose up
 
 
 
-##Running Alfresco and database in separate containers
+## Running Alfresco and database in separate containers
 
 Depending on the environment variable **CONTAINER_FUNCTION** value passed when running container your container will run Alfresco and postgres together if **CONTAINER_FUNCTION** is undefined. If  **CONTAINER_FUNCTION** equals ***tomcat***  it will start tomcat with Alfresco deployed but no DB. DB will run in a separate container called **postgres3** in the example here under. Database creation script will be ran from the "tomcat" container when started initially.
 
-###Examples:
+### Examples:
 
-####Running a stack using "docker run" and "docker-compose" 
+#### Running a stack using "docker run" and "docker-compose" 
 
 To run this example a dedicated docker network will be created (see: https://docs.docker.com/engine/userguide/networking/)
 
