@@ -61,6 +61,18 @@ Fortunately you can download the pre build image from the corresponding [docker 
 ```
 docker pull pdubois/docker-alfresco
 ```
+
+Values for jvm heap size can be specified using the "XMX" and "XMS" parameters. "XMX" value corresponds to the "-Xmx<size in meg>M" and "XMS" to  "-Xms<size in meg>M". Default values for for Xmx and Xms are both 2048M.
+
+Example:
+
+
+```
+sudo docker run -d -e INITIAL_PASS=admun -e XMS=1024 -e XMX=5120 -t -i -p 8443:8443 alfresco-5.2.0
+```
+
+
+
 ## To stop your container
 
 ```
