@@ -3,7 +3,7 @@
 set -e
 for thing in `env`
 do
- if [[ $thing == ALF* ]]; then
+ if [[ $thing == ALF_* ]]; then
 # replace the "\075" when equal is escaped (see tutum)
     thingreplaced=`echo -e $thing`
 # another possibility to escape with tutul is to use .EQ. 
