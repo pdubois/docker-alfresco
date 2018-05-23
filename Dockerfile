@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:xenial
 MAINTAINER Philippe Dubois 
 ENV DEBIAN_FRONTEND noninteractive
 RUN   apt-get update && apt-get install -y --no-install-recommends ubuntu-desktop && apt-get update && apt-get install -y wget && wget https://sourceforge.net/projects/alfresco/files/Alfresco%20201707%20Community/alfresco-community-installer-201707-linux-x64.bin && chmod +x ./*.bin 
