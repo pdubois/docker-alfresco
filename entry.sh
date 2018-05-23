@@ -37,5 +37,5 @@ else
 fi
     echo "After fi6";
 
-# loop so container does not exit
-while true;do sleep 5;done;
+# dumping logs to stdout
+tail -F /opt/alfresco/alfresco.log -F /opt/alfresco/share.log -F /opt/alfresco/solr.log
