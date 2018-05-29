@@ -17,7 +17,7 @@ do
 # getting the name value of the configuration variable passed as parameter
      name=`echo -e "${!val}" | awk -F "\.EQ\.|=" '{print $1}'`
      echo "name:$name"
-     varvalue=`echo -e "${!val}" | awk -F "\.EQ\.|=" '{print $2}'`
+     varvalue=`echo ${!val#*'.EQ.'}`
      echo "varvalue:$varvalue"
 # if varvalue starts with TUTUM then it is considered as a tutum variable
      if [[ $varvalue == TUTUM* ]]; then
