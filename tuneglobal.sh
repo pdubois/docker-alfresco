@@ -29,7 +29,7 @@ do
      then
         sed -i "/opt/alfresco/tomcat/shared/classes/alfresco-global.properties" -e "s/$name=.*/$name=$varvalue/g"
     else
-        echo  "$name=$varvalue" >> "/opt/alfresco/tomcat/shared/classes/alfresco-global.properties"
+        echo  "$name=\n$varvalue" >> "/opt/alfresco/tomcat/shared/classes/alfresco-global.properties"
     fi
  fi
 done
