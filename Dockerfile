@@ -35,6 +35,9 @@ RUN mv /opt/alfresco/alf_data /opt/alfresco/alf_data_back
 RUN mkdir /opt/alfresco/alf_data
 COPY create.sql /
 RUN   apt-get update && apt-get install -y vim
+# test if alfresco server alive and responsive
+HEALTHCHECK --interval=1m --timeout=5s \
+  CMD curl -f http://localhost:8080/alfresco || exit 1
 EXPOSE 8443
 ENTRYPOINT ["/entry.sh"]
 
